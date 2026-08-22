@@ -18,9 +18,50 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 20px;
+    }
+
+    .top-nav a {
+      display: inline-block;
+      padding: 10px 18px;
+
+      background: #FEBD59;
+      color: #111;
+
+      border: 1px solid #111;
+      border-radius: 4px;
+
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    .top-nav a:hover {
+      background: #111;
+      color: #fff;
+    }
   </style>
 </head>
 
 <body>
+
+  <nav class="top-nav">
+    <a href="#">Home</a>
+    <a href="#">Calendar</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Blog</a>
+    <a href="#">Photo Journal</a>
+    <a href="#">Liked Links</a>
+  </nav>
+
 </body>
 </html>
