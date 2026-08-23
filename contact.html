@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar | Honeybird Farm</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      position: relative;
+      overflow: hidden;
+
+      background-image: url("images/homepage-background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 20px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-nav a {
+      display: inline-block;
+      padding: 10px 18px;
+
+      background: #FEBD59;
+      color: #111;
+
+      border: 1px solid #111;
+      border-radius: 4px;
+
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    .top-nav a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .coming-soon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      color: #006B3C;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="photo-journal.html">Photo Journal</a>
+    <a href="liked-links.html">Liked Links</a>
+  </nav>
+
+  <div class="coming-soon">
+    Contact Info Coming Soon
+  </div>
+
+</body>
+</html>

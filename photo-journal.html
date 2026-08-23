@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Journal | Honeybird Farm</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background-image: url("images/homepage-background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* KEEP NAVIGATION IDENTICAL TO HOMEPAGE */
+
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 20px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-nav a {
+      display: inline-block;
+      padding: 10px 18px;
+
+      background: #FEBD59;
+      color: #111;
+
+      border: 1px solid #111;
+      border-radius: 4px;
+
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    .top-nav a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* PHOTO JOURNAL */
+
+    .journal-container {
+      width: calc(100% - 60px);
+      max-width: 1400px;
+      margin: 30px auto 60px;
+    }
+
+    .photo-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(240px, 1fr));
+
+      gap: 16px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
+      object-fit: cover;
+
+      display: block;
+
+      border: 2px solid #FEBD59;
+      border-radius: 4px;
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+    }
+
+    .photo-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.9);
+
+      align-items: center;
+      justify-content: center;
+
+      z-index: 1000;
+      padding: 30px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+
+      width: auto;
+      height: auto;
+
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+
+      background: none;
+      border: none;
+
+      color: #FEBD59;
+
+      font-size: 42px;
+      line-height: 1;
+
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="photo-journal.html">Photo Journal</a>
+    <a href="liked-links.html">Liked Links</a>
+  </nav>
+
+  <main class="journal-container">
+
+    <div
+      id="photoGrid"
+      class="photo-grid">
+    </div>
+
+  </main>
+
+  <div
+    id="lightbox"
+    class="lightbox">
+
+    <button
+      id="lightboxClose"
+      class="lightbox-close"
+      type="button"
+      aria-label="Close photo">
+      &times;
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Expanded photo">
+
+  </div>
+
+  <script>
+
+    /*
+      ADD NEW PHOTO FILENAMES HERE.
+
+      Their order here determines their
+      order in the photo journal.
+    */
+
+    const photos = [
+      "0001.jpg",
+      "0002.jpg",
+      "0003.jpg",
+      "0004.jpg",
+      "0005.jpg",
+      "0006.jpg",
+      "0007.jpg",
+      "0008.jpg"
+    ];
+
+    const photoFolder = "images/photo-journal/";
+
+    const photoGrid =
+      document.getElementById("photoGrid");
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+    const lightboxClose =
+      document.getElementById("lightboxClose");
+
+
+    /*
+      BUILD PHOTO GRID
+    */
+
+    photos
+  .sort()
+  .reverse()
+  .forEach((filename) => {
+
+      const image = document.createElement("img");
+
+      image.src = photoFolder + filename;
+
+      image.alt =
+        "" ;
+
+      image.loading = "lazy";
+
+      image.addEventListener("click", () => {
+
+        lightboxImage.src =
+          photoFolder + filename;
+
+        lightbox.classList.add("open");
+
+      });
+
+      photoGrid.appendChild(image);
+
+    });
+
+
+    /*
+      CLOSE LIGHTBOX
+    */
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("open");
+
+      lightboxImage.src = "";
+
+    }
+
+
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
