@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Honeybird Farm</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+
+      background-image: url("images/homepage-background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 20px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-nav a {
+      display: inline-block;
+      padding: 10px 18px;
+
+      background: #FEBD59;
+      color: #111;
+
+      border: 1px solid #111;
+      border-radius: 4px;
+
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    .top-nav a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .products-container {
+      width: calc(100% - 60px);
+      max-width: 850px;
+
+      margin: 30px auto 60px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .product-category {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      align-items: center;
+      gap: 18px;
+
+      padding: 12px;
+
+      background: #FCE4AE;
+
+      border: 1px solid #111;
+      border-radius: 6px;
+
+      color: #111;
+      text-decoration: none;
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .product-category:hover {
+      transform: translateY(-2px);
+      background: #FEEBC4;
+    }
+
+    .product-category img {
+      width: 130px;
+      height: 95px;
+
+      object-fit: cover;
+
+      border-radius: 4px;
+      display: block;
+    }
+
+    .category-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .category-name {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .availability {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .available {
+      color: #16803A;
+    }
+
+    .available-soon {
+      color: #1E5FBF;
+    }
+
+    .unavailable {
+      color: #B22222;
+    }
+
+    @media (max-width: 800px) {
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="photo-journal.html">Photo Journal</a>
+    <a href="liked-links.html">Liked Links</a>
+  </nav>
+
+  <main class="products-container">
+
+    <a href="pepper-spices.html" class="product-category">
+      <img src="images/products/pepper-spices.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Pepper &amp; Spices</div>
+        <div class="availability available">Available</div>
+      </div>
+    </a>
+
+    <a href="pecans.html" class="product-category">
+      <img src="images/products/pecans.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Pecans</div>
+        <div class="availability available">Available</div>
+      </div>
+    </a>
+
+    <a href="eggs.html" class="product-category">
+      <img src="images/products/eggs.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Eggs</div>
+        <div class="availability available">Available</div>
+      </div>
+    </a>
+
+    <a href="figs.html" class="product-category">
+      <img src="images/products/figs.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Figs</div>
+        <div class="availability unavailable">Currently Unavailable</div>
+      </div>
+    </a>
+
+    <a href="preserves.html" class="product-category">
+      <img src="images/products/preserves.png" alt="">
+      <div class="category-info">
+        <div class="category-name">Preserves</div>
+        <div class="availability available-soon">Available Soon</div>
+      </div>
+    </a>
+
+    <a href="seasonal-produce.html" class="product-category">
+      <img src="images/products/produce.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Seasonal Produce</div>
+        <div class="availability unavailable">Currently Unavailable</div>
+      </div>
+    </a>
+
+    <a href="flowers.html" class="product-category">
+      <img src="images/products/flowers.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Flowers</div>
+        <div class="availability available">Available</div>
+      </div>
+    </a>
+
+    <a href="firewood.html" class="product-category">
+      <img src="images/products/firewood.jpg" alt="">
+      <div class="category-info">
+        <div class="category-name">Firewood</div>
+        <div class="availability available-soon">Available Soon</div>
+      </div>
+    </a>
+
+  </main>
+
+</body>
+</html>
